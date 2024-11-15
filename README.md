@@ -18,6 +18,26 @@ This project demonstrates the ability to create, read, update, and delete (CRUD)
 - **Pagination**: A table view with pagination to display the content in manageable chunks.
 - **Material UI**: The UI uses Material UI components for a clean and modern design.
 
+## Mongodb schema
+```plaintext
+const mongoose = require("mongoose");
+
+const contactSchema = new mongoose.Schema(
+  {
+    firstname: { type: String, required: true },
+    lastname: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    phone: { type: String, required: true },
+    company: { type: String },
+    jobtitle: { type: String },
+  },
+  { timestamps: true }
+);
+```
+
+module.exports = mongoose.model("Contact", contactSchema);
+
+
 ## Setup Instructions
 
 ### 1. Clone the Repository
