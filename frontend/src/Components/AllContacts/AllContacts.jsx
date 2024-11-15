@@ -16,7 +16,7 @@ const AllContacts = () => {
   const [contactData, setContactData] = useState({});
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [contactsPerPage] = useState(5);
+  const [contactsPerPage] = useState(10);
 
   useEffect(() => {
     setLoading(true);
