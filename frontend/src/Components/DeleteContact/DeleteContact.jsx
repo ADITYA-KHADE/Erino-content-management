@@ -1,18 +1,25 @@
 import React from "react";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button } from "@mui/material";
+import { toast } from "react-hot-toast";
 
-const DeleteContact = ({ contactId, setDeleteModal, setReload }) => {
+const DeleteContact = ({ contactData, setDeleteModal, setReload }) => {
   const handleDelete = () => {
-    // Mock API request to delete the contact
-    fetch(`/api/contacts/${contactId}`, {
+    fetch(`/api/contacts/${contactData._id}`, {
       method: "DELETE",
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to delete contact.");
+        }
+        return res.json();
+      })
       .then(() => {
-        setReload((prev) => !prev); // Trigger reload in parent component
-        setDeleteModal(false); // Close modal
+        toast.success("Contact deleted successfully!");
+        setReload((prev) => !prev); 
+        setDeleteModal(false);
       })
       .catch((err) => {
+        toast.error("Error deleting contact.");
         console.error("Error deleting contact:", err);
       });
   };

@@ -107,7 +107,7 @@ const AllContacts = () => {
               ) : (
                 <tr>
                   <td colSpan="6" className="text-center px-4 py-2">
-                    <NotFound/>
+                    <NotFound />
                   </td>
                 </tr>
               )}
@@ -134,7 +134,7 @@ const AllContacts = () => {
       )}
       {deleteModal && (
         <DeleteContact
-          contactId={contactData.id}
+          contactData={contactData}
           setReload={setReload}
           setDeleteModal={setDeleteModal}
         />

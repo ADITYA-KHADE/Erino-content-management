@@ -7,9 +7,9 @@ import {
   TextField,
   Button,
 } from "@mui/material";
+import { toast } from "react-hot-toast";
 
 const UpdateContact = ({ contactData, setUpdateModal, setReload }) => {
-  console.log(contactData)
   const [updatedData, setUpdatedData] = useState(contactData);
 
   const handleChange = (e) => {
@@ -28,12 +28,19 @@ const UpdateContact = ({ contactData, setUpdateModal, setReload }) => {
       },
       body: JSON.stringify(updatedData),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Failed to update contact.");
+        }
+        return res.json();
+      })
       .then(() => {
-        setReload((prev) => !prev); // Trigger reload in parent component
-        setUpdateModal(false); // Close modal
+        toast.success("Contact updated successfully!");
+        setReload((prev) => !prev);
+        setUpdateModal(false);
       })
       .catch((err) => {
+        toast.error("Error updating contact.");
         console.error("Error updating contact:", err);
       });
   };
