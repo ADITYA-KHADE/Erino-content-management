@@ -24,7 +24,17 @@ const AllContacts = () => {
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) {
-          setContacts(data);
+          const sortedContacts = data.sort((a, b) => {
+            const nameA = a.firstname.toLowerCase();
+            const nameB = b.firstname.toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            const lastNameA = a.lastname.toLowerCase();
+            const lastNameB = b.lastname.toLowerCase();
+            return lastNameA.localeCompare(lastNameB);
+          });
+
+          setContacts(sortedContacts);
         } else {
           console.error("Error: API response is not an array");
           setContacts([]);
