@@ -9,7 +9,6 @@ The **Content Management System (CMS)** is a full-stack application that allows 
 - **Backend**: Powered by Node.js and Express, providing robust API endpoints for CRUD operations.
 - **Database**: MongoDB serves as the database to store and manage content data.
 
----
 
 ## Features
 - **Create Content**: Users can create new content through a simple form interface.
@@ -19,7 +18,6 @@ The **Content Management System (CMS)** is a full-stack application that allows 
 - **Material UI Integration**: Provides a consistent and modern design system.
 - **Pagination**: Enhances usability for large datasets by displaying content in chunks.
 
----
 
 ## Major Technical Decisions
 
@@ -29,8 +27,13 @@ The **Content Management System (CMS)** is a full-stack application that allows 
 4. **Environment Management**: `.env` file is used to manage environment variables like database connection strings and server ports securely.
 5. **Build Process**: A single command (`npm run build`) sets up both the frontend and backend, ensuring a seamless deployment pipeline.
 
----
 
+## Challenges and Solutions
+
+### 1.Pagination and Sorting
+- **Challenge**: Implementing effective pagination and sorting on the website while ensuring it functions correctly with the backend data.
+
+- **Solution**: Used Material UI's Table component and added server-side pagination and sorting algorithms. The backend API was modified to accept query parameters (page, limit, sort) and answer with paginated data.
 
 ## Mongodb schema
 ```javascript
