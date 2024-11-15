@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import DeleteContact from "../DeleteContact/DeleteContact";
 import UpdateContact from "../UpdateContact/UpdateContact";
+import NotFound from "../../Notfound.jsx";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const AllContacts = () => {
   const [contacts, setContacts] = useState([]);
@@ -10,15 +13,7 @@ const AllContacts = () => {
   const [reload, setReload] = useState(false);
   const [deleteModal, setDeleteModal] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
-  const [contactData, setContactData] = useState({
-    id: "",
-    firstname: "",
-    lastname: "",
-    email: "",
-    phone: "",
-    company: "",
-    jobtitle: "",
-  });
+  const [contactData, setContactData] = useState({});
 
   const [currentPage, setCurrentPage] = useState(1);
   const [contactsPerPage] = useState(5);
@@ -56,8 +51,8 @@ const AllContacts = () => {
     setUpdateModal(true);
   };
 
-  const handleDelete = (id) => {
-    setContactData((prev) => ({ ...prev, id }));
+  const handleDelete = (contact) => {
+    setContactData(contact);
     setDeleteModal(true);
   };
 
@@ -73,15 +68,15 @@ const AllContacts = () => {
         <div className="text-center py-4">Loading contacts...</div>
       ) : (
         <>
-          <table className="min-w-full bg-white border border-gray-200 rounded-lg">
+          <table className="min-w-full bg-blue-300 border border-gray-300 rounded-lg">
             <thead>
-              <tr className="bg-gray-100">
-                <th className="px-4 py-2 text-left">Name</th>
-                <th className="px-4 py-2 text-left">Email</th>
-                <th className="px-4 py-2 text-left">Phone</th>
-                <th className="px-4 py-2 text-left">Company</th>
-                <th className="px-4 py-2 text-left">Job Title</th>
-                <th className="px-4 py-2 text-center">Actions</th>
+              <tr className="bg-blue-100 text-center">
+                <th className="px-4 py-2 ">Name</th>
+                <th className="px-4 py-2 ">Email</th>
+                <th className="px-4 py-2 ">Phone</th>
+                <th className="px-4 py-2 ">Company</th>
+                <th className="px-4 py-2">Job Title</th>
+                <th className="px-4 py-2 ">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -98,13 +93,13 @@ const AllContacts = () => {
                         className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600"
                         onClick={() => handleUpdate(contact)}
                       >
-                        Update
+                        <EditIcon />
                       </button>
                       <button
                         className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                        onClick={() => handleDelete(contact.id)}
+                        onClick={() => handleDelete(contact)}
                       >
-                        Delete
+                        <DeleteIcon />
                       </button>
                     </td>
                   </tr>
@@ -112,14 +107,14 @@ const AllContacts = () => {
               ) : (
                 <tr>
                   <td colSpan="6" className="text-center px-4 py-2">
-                    No contacts available.
+                    <NotFound/>
                   </td>
                 </tr>
               )}
             </tbody>
           </table>
 
-          <Stack spacing={2} className="mt-4">
+          <Stack spacing={2} className="mt-4 justify-center items-center">
             <Pagination
               count={totalPages}
               page={currentPage}

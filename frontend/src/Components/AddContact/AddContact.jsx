@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { TextField, Button, Snackbar, Alert } from "@mui/material";
+import { TextField, Button } from "@mui/material";
+import { toast } from "react-hot-toast";
 
 const AddContact = () => {
   const [contactData, setContactData] = useState({
@@ -10,9 +11,6 @@ const AddContact = () => {
     company: "",
     jobtitle: "",
   });
-
-  const [openSnackbar, setOpenSnackbar] = useState(false);
-  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +23,6 @@ const AddContact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Mock API request (replace with actual API request)
     fetch("/api/contacts", {
       method: "POST",
       headers: {
@@ -35,9 +32,7 @@ const AddContact = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        setSnackbarMessage("Contact added successfully!");
-        setOpenSnackbar(true);
-        // Reset form after submit
+        toast.success("Contact added successfully!");
         setContactData({
           firstname: "",
           lastname: "",
@@ -48,16 +43,16 @@ const AddContact = () => {
         });
       })
       .catch((err) => {
-        setSnackbarMessage("Error adding contact.");
-        setOpenSnackbar(true);
+        toast.error("Error adding contact.");
+        console.error(err);
       });
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 border-2 border-gray-600 max-w-screen-md mx-auto bg-gray-300">
       <h2 className="text-xl font-bold mb-4">Add New Contact</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="p-2 space-y-3">
         <TextField
           label="First Name"
           variant="outlined"
@@ -117,20 +112,6 @@ const AddContact = () => {
           Add Contact
         </Button>
       </form>
-
-      <Snackbar
-        open={openSnackbar}
-        autoHideDuration={6000}
-        onClose={() => setOpenSnackbar(false)}
-      >
-        <Alert
-          onClose={() => setOpenSnackbar(false)}
-          severity={snackbarMessage.includes("Error") ? "error" : "success"}
-          sx={{ width: "100%" }}
-        >
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
     </div>
   );
 };

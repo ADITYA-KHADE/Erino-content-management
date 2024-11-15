@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 
 const UpdateContact = ({ contactData, setUpdateModal, setReload }) => {
+  console.log(contactData)
   const [updatedData, setUpdatedData] = useState(contactData);
 
   const handleChange = (e) => {
@@ -20,8 +21,7 @@ const UpdateContact = ({ contactData, setUpdateModal, setReload }) => {
   };
 
   const handleUpdate = () => {
-    // Mock API request to update contact
-    fetch(`/api/contacts/${updatedData.id}`, {
+    fetch(`/api/contacts/${updatedData._id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +39,12 @@ const UpdateContact = ({ contactData, setUpdateModal, setReload }) => {
   };
 
   return (
-    <Dialog open={true} onClose={() => setUpdateModal(false)} fullWidth maxWidth="sm">
+    <Dialog
+      open={true}
+      onClose={() => setUpdateModal(false)}
+      fullWidth
+      maxWidth="sm"
+    >
       <DialogTitle>Update Contact</DialogTitle>
       <DialogContent>
         <TextField
@@ -104,4 +109,3 @@ const UpdateContact = ({ contactData, setUpdateModal, setReload }) => {
 };
 
 export default UpdateContact;
-

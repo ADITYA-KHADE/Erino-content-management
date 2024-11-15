@@ -6,8 +6,8 @@ const Home = () => {
   const [currentView, setCurrentView] = useState("AllContacts");
 
   return (
-    <div className="p-4">
-      <div className="flex space-x-4 mb-6 border-b border-gray-200">
+    <div className="p-2">
+      <div className="flex space-x-5 mb-6 border-b justify-center items-center border-gray-200">
         <button
           className={`px-4 py-2 font-medium ${
             currentView === "AllContacts"
