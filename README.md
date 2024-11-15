@@ -27,4 +27,5 @@ To get started, clone this repository to your local machine:
 ```bash
 git clone https://github.com/ADITYA-KHADE/Erino-content-management.git
 cd Erino-content-management
-h
+```
+
