@@ -31,12 +31,21 @@ cd Erino-content-management
 
 ## 2. Add ENV file 
 
-Create a `.env` file in the root directory of the project and add the following environment variables:
+Create a `.env` file in the root directory of the project and  add the following environment variables:
 
 ```plaintext
-MONGO_URI=your_mongodb_connection_string
+MONGODB_URI=your_mongodb_connection_string
 PORT=your_desired_port_number
-JWT_SECRET=your_jwt_secret_key
+
 ```
 
-Replace `your_mongodb_connection_string`, `your_desired_port_number`, and `your_jwt_secret_key` with your actual MongoDB connection string, desired port number, and JWT secret key respectively.
+Replace `your_mongodb_connection_string` and `your_desired_port_number` with your actual MongoDB connection string, desired port number, and JWT secret key respectively.
+
+### 3. Install Dependencies, built dist folder and start application
+
+run this command at terminal
+
+```bash
+npm run build
+npm run start
+```
