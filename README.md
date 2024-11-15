@@ -78,7 +78,7 @@ PORT=your_desired_port_number
 
 ```
 
-Replace `your_mongodb_connection_string` and `your_desired_port_number` with your actual MongoDB connection string, desired port number, and JWT secret key respectively.
+Replace `your_mongodb_connection_string` and `your_desired_port_number` with your actual MongoDB connection string and desired port number respectively.
 
 ## 3. Install Dependencies, built dist folder and start application
 
