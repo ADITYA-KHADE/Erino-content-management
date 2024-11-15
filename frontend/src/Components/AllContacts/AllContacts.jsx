@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DeleteContact from "../DeleteContact/DeleteContact";
 import UpdateContact from "../UpdateContact/UpdateContact";
-import NotFound from "../../Notfound.jsx";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import EditIcon from "@mui/icons-material/Edit";
