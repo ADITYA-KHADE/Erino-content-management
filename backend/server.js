@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
-app.use("/api/auth", authRoute);
+app.use("/api", authRoute);
 
 app.use(express.static(path.join(__dirname, "../frontend", "dist")));
 app.get("*", (req, res) => {
