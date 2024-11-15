@@ -29,3 +29,14 @@ git clone https://github.com/ADITYA-KHADE/Erino-content-management.git
 cd Erino-content-management
 ```
 
+## 2. Add ENV file 
+
+Create a `.env` file in the root directory of the project and add the following environment variables:
+
+```plaintext
+MONGO_URI=your_mongodb_connection_string
+PORT=your_desired_port_number
+JWT_SECRET=your_jwt_secret_key
+```
+
+Replace `your_mongodb_connection_string`, `your_desired_port_number`, and `your_jwt_secret_key` with your actual MongoDB connection string, desired port number, and JWT secret key respectively.
