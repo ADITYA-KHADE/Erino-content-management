@@ -19,7 +19,7 @@ This project demonstrates the ability to create, read, update, and delete (CRUD)
 - **Material UI**: The UI uses Material UI components for a clean and modern design.
 
 ## Mongodb schema
-```plaintext
+```javascript
 const mongoose = require("mongoose");
 
 const contactSchema = new mongoose.Schema(
