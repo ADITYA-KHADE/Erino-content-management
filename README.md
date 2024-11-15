@@ -2,21 +2,35 @@
 
 ## Overview
 
-The Content Management System (CMS) is a full-stack application that allows users to manage their content efficiently. It includes both frontend and backend functionality:
+The **Content Management System (CMS)** is a full-stack application that allows users to efficiently manage content in a centralized system. It includes features for creating, viewing, updating, and deleting content. The application is designed to be user-friendly, scalable, and visually appealing with a modern UI.
 
-- **Frontend**: Built with React and Material UI (MUI) for a modern and responsive user interface.
-- **Backend**: Built with Node.js and Express, handling API requests to interact with the MongoDB database.
-- **Database**: MongoDB is used to store and manage content data.
+### Key Components:
+- **Frontend**: Built using React and Material UI (MUI) for a responsive and intuitive interface.
+- **Backend**: Powered by Node.js and Express, providing robust API endpoints for CRUD operations.
+- **Database**: MongoDB serves as the database to store and manage content data.
 
-This project demonstrates the ability to create, read, update, and delete (CRUD) content, providing a user-friendly interface to manage content data in one centralized system.
+---
 
 ## Features
-- **Create Content**: Users can create new content by filling out a form.
-- **Read Content**: All content can be listed and viewed in a paginated table.
-- **Update Content**: Content can be edited and updated.
-- **Delete Content**: Content can be deleted from the database.
-- **Pagination**: A table view with pagination to display the content in manageable chunks.
-- **Material UI**: The UI uses Material UI components for a clean and modern design.
+- **Create Content**: Users can create new content through a simple form interface.
+- **View Content**: Displays content in a paginated table with sorting capabilities.
+- **Update Content**: Allows users to edit existing content details.
+- **Delete Content**: Removes outdated or unnecessary content entries.
+- **Material UI Integration**: Provides a consistent and modern design system.
+- **Pagination**: Enhances usability for large datasets by displaying content in chunks.
+
+---
+
+## Major Technical Decisions
+
+1. **Frontend Library**: React was chosen for its component-based architecture and performance. Material UI ensures a modern, consistent, and easily customizable design.
+2. **Backend Framework**: Express.js provides a minimal and flexible framework for building RESTful APIs, allowing rapid development.
+3. **Database Selection**: MongoDB was selected for its schema flexibility and ability to handle JSON-like data structures efficiently.
+4. **Environment Management**: `.env` file is used to manage environment variables like database connection strings and server ports securely.
+5. **Build Process**: A single command (`npm run build`) sets up both the frontend and backend, ensuring a seamless deployment pipeline.
+
+---
+
 
 ## Mongodb schema
 ```javascript
