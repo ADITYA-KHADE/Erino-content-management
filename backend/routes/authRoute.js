@@ -1,10 +1,10 @@
-const express = require('express')
-const router = express.Router()
-const {login,signup,logout,getToken}=require("../controllers/auth")
+const express = require('express');
+const router = express.Router();
+const { addContact, getContacts, updateContact, deleteContact } = require('../controllers/contacts');
 
-router.post('/login',login);
-router.post('/signup',signup);
-router.post('/logout',logout);
-router .post('/getToken',getToken)
+router.post('/contacts', addContact); 
+router.get('/contacts', getContacts);       
+router.put('/contacts/:id', updateContact);    
+router.delete('/contacts/:id', deleteContact); 
 
-module.exports = router
+module.exports = router;
